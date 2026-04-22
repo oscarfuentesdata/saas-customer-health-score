@@ -135,18 +135,4 @@ Jan 2024 ───────────────────────�
 
 Manageable in SQLite without performance issues. Demonstrates ability to work with non-trivial data volumes.
 
----
-
-## Defense-ready summary
-
-When asked in interviews why each decision was made, the short answers:
-
-- **Why 60/30/10 segment split?** Reflects Series B "land and expand" pyramid from OpenView Benchmarks. Gives enough volume of churn events across segments to train and evaluate heterogeneous behavior.
-- **Why 6 industries with modifiers?** Captures industry-specific retention patterns documented by SaaS Capital. Enables the model to learn industry × segment interactions.
-- **Why 3 pricing tiers with dynamic movement?** Contraction is one of the strongest churn predictors available. Eliminating plan dynamics would remove this signal.
-- **Why 18 months and temporal split?** Need 12-month training window + validation + 90-day outcome window. Temporal split prevents leakage that invalidates random-split models in production.
-- **Why ~800 accounts?** Series B sweet spot: enough volume for modeling, small enough that the operational problem (CSM prioritization) genuinely exists.
-
----
-
 *End of business context. See `project-brief.md` for analytical framing and `design-decisions.md` for cross-phase technical decisions.*
